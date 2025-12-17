@@ -1,0 +1,55 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #fff0f5;
+    /* LavenderBlush - very light pink */
+    color: #5d4037;
+    /* Darker warm gray/brown for contrast */
+    line-height: 1.6;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    .main-content-wrapper {
+        flex: 3;
+    }
+
+    app-sidebar {
+        flex: 1;
+    }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #d81b60;
+    /* Pink accent color */
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #ec407a;
+    /* Lighter pink for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #c2185b;
+    /* Darker pink on hover */
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,49 @@
+.page-container {
+    margin-left: 1.5rem;
+
+    h1 {
+        color: #880e4f;
+    }
+
+    .content {
+        p {
+            color: #5d4037;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #c2185b;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        li {
+            background-color: white;
+            color: #d81b60;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            border: 1px solid #f8bbd0;
+            box-shadow: 0 2px 4px rgba(233, 30, 99, 0.05);
+            transition: all 0.2s ease;
+            cursor: default;
+
+            &:hover {
+                background-color: #d81b60;
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(233, 30, 99, 0.2);
+            }
+        }
+    }
+}
