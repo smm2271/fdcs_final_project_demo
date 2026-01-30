@@ -9,6 +9,12 @@
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid #f8bbd0;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
 }
 
 .logo {

@@ -14,12 +14,28 @@ body {
     flex-direction: row;
     gap: 2rem;
 
+    /* Make layout responsive */
+    @media (max-width: 900px) {
+        flex-direction: column-reverse;
+        /* Sidebar at bottom/top? Let's try column-reverse so sidebar is at bottom or column to have it below. If sidebar is user profile, maybe top? 
+           Usually sidebar with profile is expected first or last. Let's put it at the top if it's "Identity". 
+           But looking at the screenshot (implied), content is main. 
+           Let's use column for now, so sidebar is below content. This is safer for reading flow.
+           Wait, sidebar has "Found Cipher Machine" (profile). 
+           Maybe better to keep it after content if it's secondary.
+        */
+        flex-direction: column;
+        gap: 1rem;
+    }
+
     .main-content-wrapper {
         flex: 3;
+        width: 100%; /* Ensure full width on mobile */
     }
 
     app-sidebar {
         flex: 1;
+        width: 100%; /* Ensure full width on mobile */
     }
 }
 

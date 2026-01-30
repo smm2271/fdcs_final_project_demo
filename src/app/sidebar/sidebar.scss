@@ -23,6 +23,16 @@
         /* Softer, deeper shadow */
         border: 1px solid rgba(255, 255, 255, 0.5);
 
+        @media (max-width: 900px) {
+            width: 95%;
+            /* Use more width on mobile */
+            min-height: auto;
+            /* Remove fixed height constraint */
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            /* Add bottom spacing */
+        }
+
         img {
             width: 160px;
             height: 160px;

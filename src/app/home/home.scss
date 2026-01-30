@@ -1,5 +1,8 @@
 .page-container {
-    margin-left: 1.5rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    max-width: 1200px;
+    /* confine width on large screens */
 
     .content {
         p {
