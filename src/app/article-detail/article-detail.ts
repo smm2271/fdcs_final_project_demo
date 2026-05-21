@@ -150,7 +150,7 @@ export class ArticleDetail {
     const html = marked.parse(prepared, {
       renderer,
       gfm: true,
-      breaks: false
+      breaks: true
     }) as string;
 
     return { html, violations, title };
