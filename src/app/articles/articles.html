@@ -1,24 +1,35 @@
 <div class="page-container">
     <h1>文章</h1>
-    <p class="intro">
+    <!-- <p class="intro">
         每篇文章放在 public/articles/&lt;slug&gt;/index.md。內容中可用 [[slug]] 或
         [文字](article:slug) 互相引用。
-    </p>
+    </p> -->
 
-    <div class="status" *ngIf="isLoading">載入中...</div>
-    <div class="status error" *ngIf="error">{{ error }}</div>
+    @if (isLoading) {
+    <div class="status">載入中...</div>
+    }
+    @if (error) {
+    <div class="status error">{{ error }}</div>
+    }
 
-    <ul class="article-list" *ngIf="!isLoading && !error">
-        <li *ngFor="let item of items">
-            <a [routerLink]="['/articles', item.slug]">
-                <h2>{{ item.title }}</h2>
-                <p *ngIf="item.summary">{{ item.summary }}</p>
-                <span class="meta" *ngIf="item.date">{{ item.date }}</span>
-            </a>
-        </li>
+    @if (!isLoading && !error) {
+    <ul class="article-list">
+        @for (item of items; track $index) {
+        <a [routerLink]="['/articles', item.slug]">
+            <h2>{{ item.title }}</h2>
+            @if (item.summary) {
+            <p>{{ item.summary }}</p>
+            }
+            @if (item.date) {
+            <span class="meta">{{ item.date }}</span>
+            }
+        </a>
+        }
     </ul>
-
-    <div class="status empty" *ngIf="!isLoading && !error && items.length === 0">
+    }
+    @if (!isLoading && !error && items.length === 0) {
+    <div class="status empty">
         尚未新增文章。
     </div>
+    }
 </div>

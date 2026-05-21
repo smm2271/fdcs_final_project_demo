@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 type ArticleIndexItem = {
@@ -11,7 +10,7 @@ type ArticleIndexItem = {
 
 @Component({
   selector: 'app-articles',
-  imports: [NgIf, NgFor, RouterLink],
+  imports: [RouterLink],
   templateUrl: './articles.html',
   styleUrl: './articles.scss'
 })
@@ -19,6 +18,8 @@ export class Articles {
   items: ArticleIndexItem[] = [];
   isLoading = true;
   error = '';
+
+  constructor(private readonly cdr: ChangeDetectorRef) {}
 
   async ngOnInit() {
     await this.loadIndex();
@@ -43,6 +44,7 @@ export class Articles {
       this.error = '文章列表讀取失敗，請稍後再試。';
     } finally {
       this.isLoading = false;
+      this.cdr.detectChanges();
     }
   }
 }

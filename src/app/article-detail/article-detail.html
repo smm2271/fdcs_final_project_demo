@@ -3,21 +3,26 @@
 
     <h1>{{ title || '文章' }}</h1>
 
-    <div class="status" *ngIf="isLoading">載入中...</div>
-    <div class="status error" *ngIf="error">{{ error }}</div>
+    @if (isLoading) {
 
-    <div class="violations" *ngIf="violations.length">
-        <h2>已封鎖的連結或圖片</h2>
-        <p>為避免跨資料夾渲染，以下項目已被移除：</p>
-        <ul>
-            <li *ngFor="let item of violations">{{ item }}</li>
-        </ul>
-    </div>
+    <div class="status">載入中...</div>
+    }
+    @if (error) {
+    <div class="status error">{{ error }}</div>
+    }
+    @if (violations.length) {
 
-    <article
-        class="markdown"
-        *ngIf="!isLoading && !error"
-        [innerHTML]="html"
-        (click)="onContentClick($event)"
-    ></article>
+    <h2>已封鎖的連結或圖片</h2>
+    <p>為避免跨資料夾渲染，以下項目已被移除：</p>
+    <ul>
+        @for (item of violations; track $index) {
+        <li>{{ item }}</li>
+        }
+    </ul>
+    }
+
+    @if (!isLoading && !error) {
+    <article class="markdown" [innerHTML]="html" (click)="onContentClick($event)">
+    </article>
+    }
 </div>
