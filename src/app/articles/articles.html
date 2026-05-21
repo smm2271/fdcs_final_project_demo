@@ -1,0 +1,24 @@
+<div class="page-container">
+    <h1>文章</h1>
+    <p class="intro">
+        每篇文章放在 public/articles/&lt;slug&gt;/index.md。內容中可用 [[slug]] 或
+        [文字](article:slug) 互相引用。
+    </p>
+
+    <div class="status" *ngIf="isLoading">載入中...</div>
+    <div class="status error" *ngIf="error">{{ error }}</div>
+
+    <ul class="article-list" *ngIf="!isLoading && !error">
+        <li *ngFor="let item of items">
+            <a [routerLink]="['/articles', item.slug]">
+                <h2>{{ item.title }}</h2>
+                <p *ngIf="item.summary">{{ item.summary }}</p>
+                <span class="meta" *ngIf="item.date">{{ item.date }}</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="status empty" *ngIf="!isLoading && !error && items.length === 0">
+        尚未新增文章。
+    </div>
+</div>
