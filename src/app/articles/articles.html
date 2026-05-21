@@ -15,15 +15,17 @@
     @if (!isLoading && !error) {
     <ul class="article-list">
         @for (item of items; track $index) {
-        <a [routerLink]="['/articles', item.slug]">
-            <h2>{{ item.title }}</h2>
-            @if (item.summary) {
-            <p>{{ item.summary }}</p>
-            }
-            @if (item.date) {
-            <span class="meta">{{ item.date }}</span>
-            }
-        </a>
+        <li class="article-card">
+            <a [routerLink]="['/articles', item.slug]">
+                <h2>{{ item.title }}</h2>
+                @if (item.summary) {
+                <p>{{ item.summary }}</p>
+                }
+                @if (item.date) {
+                <span class="meta">{{ item.date }}</span>
+                }
+            </a>
+        </li>
         }
     </ul>
     }
