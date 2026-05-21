@@ -41,5 +41,11 @@
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
+  },
+  "overrides": {
+    "ajv": "^8.17.2",
+    "picomatch": "^4.0.4",
+    "undici": "^7.23.1",
+    "vite": "^7.3.2"
   }
 }
